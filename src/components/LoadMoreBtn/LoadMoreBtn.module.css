@@ -1,0 +1,15 @@
+.btn {
+  background-color: gray;
+  color: #fff;
+  font-weight: 500;
+  line-height: 1.5;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+
+  display: block;
+  margin: auto;
+  min-width: 100px;
+  height: 40px;
+  border: none;
+  border-radius: 50%;
+}

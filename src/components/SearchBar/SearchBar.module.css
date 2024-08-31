@@ -1,0 +1,37 @@
+.form {
+  display: flex;
+
+  border: 2px solid black;
+  border-radius: 4px;
+  padding: 8px;
+  background-color: beige;
+  margin-bottom: 8px;
+
+  justify-content: center;
+}
+
+.field {
+  height: 25px;
+  width: 500px;
+  border-radius: 5px;
+  border: 2px black solid;
+  margin-right: 10px;
+  padding-left: 6px;
+}
+
+.btn {
+  width: 75px;
+  height: 25px;
+  border-radius: 5px;
+  border: 1px solid black;
+}
+.error {
+  color: red;
+}
+
+.header {
+  background-color: #f2f9f2;
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: 30px;
+}
