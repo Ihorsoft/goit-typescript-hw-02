@@ -9,6 +9,7 @@ import ErrorMessage from "../ErrorMessage/ErrorMessage";
 import ImageModal from "../ImageModal/ImageModal";
 import Loader from "../Loader/Loader";
 import { string } from "yup";
+import { ImageCardData } from "../../types";
 
 //++++++++++++++++++++++++++++++++++
 const App: React.FC = () => {
@@ -20,32 +21,22 @@ const App: React.FC = () => {
   type client_id = string;
   type query = string;
   type orientation = string;
-  // type per_page = number;
-  //type page = number;
 
-  /*  interface IURLSearchParams {
-    client_id: string;
-    query: string;
-    orientation: string;
-    per_page: number;
-    page: number;
-  } */
-
-  interface Iarticles {
+  /* interface Iarticles {
     id: string;
     urls: {
       regular: string;
       small: string;
     };
     alt_description: string;
-  }
+  } */
 
   const BASE_URL = "https://api.unsplash.com";
   const END_POINT = "/search/photos";
   const keyUser = "Fhd-P2QUhRR1aYB8Az9enT_MZd0_7CdpwCwyB01Kq0I";
   const per_page = 15;
 
-  const [articles, setArticles] = useState<Iarticles[]>([]);
+  const [articles, setArticles] = useState<ImageCardData[]>([]);
   const [keyImage, setKeyImage] = useState<string>("");
   const [totalPages, setTotalPages] = useState<number>(1);
   const [page, setPage] = useState<number>(1);
@@ -106,8 +97,16 @@ const App: React.FC = () => {
     results: Iarticles;
     totalPages: number;
   } */
+
+  //+++++++++++++++++++++++++++++++++++++++++++
+
+  interface Response {
+    results: ImageCardData[];
+    totalPages: number;
+  }
+
   //+++++++++++++++++++++++++++++++++++++++++++++++
-  async function fetchArticles() {
+  async function fetchArticles(): Promise<Response> {
     const params = new URLSearchParams({
       client_id: keyUser,
       query: keyImage,
@@ -125,6 +124,7 @@ const App: React.FC = () => {
 
   //++++++++++++++++++
 
+  //+++++++++++++++++++++++++
   async function GetData() {
     try {
       setIsLoading(true);
